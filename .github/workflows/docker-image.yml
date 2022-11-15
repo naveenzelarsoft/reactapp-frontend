@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "dev" ]
 
 jobs:
 
@@ -23,7 +23,7 @@ jobs:
     - name: Build the Docker image
       run: |
            cd frontend-react
-           docker build . --file Dockerfile -t ${{secrets.DOCKER_USER}}/reactapplication:latest
+           docker build . --file Dockerfile -t ${{secrets.DOCKER_USER}}/reactfrontend:latest
            
     - name: docker push
-      run: docker push ${{secrets.DOCKER_USER}}/reactapplication:latest
+      run: docker push ${{secrets.DOCKER_USER}}/reactfrontend:latest
